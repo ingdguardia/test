@@ -1,0 +1,66 @@
+// pipeline{
+//     agent {
+//     docker {
+//       image 'node:lts-buster-slim'
+//       args '-p 8989:8989'
+//     }
+//   } 
+//     stages{
+//         stage('Prueba'){
+//             agent{
+//                 docker{image 'maven: 3.9.2-adoptopenjdk-11'}
+//             }
+//             steps{
+//                 sh 'mvn --version'
+//             }
+//         stage('Prueba 2'){
+//             agent{
+//                 docker { image 'node:16-alpine'}
+//             }
+//             steps{
+//                 sh 'node --version'
+//             }
+//         }
+//         }
+//     }
+// }
+
+pipeline{
+    agent {
+    docker {
+      image 'maven:3.9.2'
+         }
+    } 
+    // agent any 
+    stages{
+        stage('Example'){
+            steps{
+             sh 'mvn --version'
+                sh 'mvn clean compile test'
+                // sh 'mvn --version'
+                // sh  'docker run -it --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven markhobson/maven-chrome mvn clean install'
+            }
+        }
+    }
+}
+
+// pipeline {
+//     agent { docker{ image 'maven:3.3.3' } }
+//       stages {
+//         stage('log version info') {
+//       steps {
+//         sh 'mvn --version'
+//         sh 'mvn clean install'
+//       }
+//     }
+//   }
+//}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+<div class="cms-message" hidden="" style="display: block;">    <i class="material-icons">search</i>    <p>No se han encontrado resultados</p>    <!-- <a class="waves-effect waves-light btn ResultsNew"  id="" onclick="">Nuevo</a> --></div>

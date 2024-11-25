@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteName" parallel="methods" thread-count="3">
+  <test name="TestName" parallel="methods" thread-count="3">
+
+    <classes>
+      <class name="com.dacautomation.tests.cms.chromeBaseTest1" />
+      <class name="com.dacautomation.tests.cms.chromeBaseTest2" />
+      <class name="com.dacautomation.tests.cms.chromeBaseTest3" />
+    </classes>
+  </test>
+</suite>

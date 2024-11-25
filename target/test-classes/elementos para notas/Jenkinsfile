@@ -1,0 +1,40 @@
+// pipeline{
+//     agent any
+   
+//     tools{
+//         maven '3.0.5'
+//     }
+//     stages{
+//         stage('Example'){
+//             steps{
+//                 sh 'mvn --version'
+//                 sh 'mvn clean compile test'
+//             }
+//         }
+//     }
+// }
+
+pipeline{
+    agent any
+   tools{
+        maven '3.0.5'
+    }
+    stages{
+        stage('Example'){
+            steps{
+                sh 'mvn --version'
+                sh 'mvn clean compile test'
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

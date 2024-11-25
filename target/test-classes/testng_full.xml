@@ -1,0 +1,31 @@
+<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
+<!--<suite name="SuiteName" parallel="methods" thread-count="3">-->
+<!--    <test name="TestName" parallel="methods" thread-count="3">-->
+
+<!--        <classes>-->
+<!--&lt;!&ndash;            <class name="com.dacautomation.FullTest">&ndash;&gt;-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--</suite>-->
+<!--&lt;!&ndash; <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
+
+<!--<suite name="Suite1" verbose="1" parallel="methods" thread-count="1">-->
+
+<!--    <test name="Test1" enabled="true">-->
+<!--        <parameter name="grupo" value=""></parameter>-->
+<!--        <parameter name="testType" value=""></parameter>-->
+<!--        <parameter name="user" value=""></parameter>-->
+<!--        <parameter name="pass" value=""></parameter>-->
+
+<!--        <classes>-->
+<!--            <class name="com.dacautomation.FullTest">-->
+<!--                <methods>-->
+<!--                    <include name="fullTest" />-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+<!--</suite> &ndash;&gt;-->

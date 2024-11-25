@@ -1,0 +1,6 @@
+com/dacautomation/pages/cms/cms_base.class
+com/dacautomation/pages/cms/notas.class
+com/dacautomation/pages/cms/adjuntos.class
+com/dacautomation/pages/cms/categorias.class
+com/dacautomation/pages/cms/tags.class
+com/dacautomation/pages/cms/cms_base$1.class
