@@ -77,102 +77,102 @@ public class adjuntos extends cms_base {
 
 
     }
-
-    public String createAttach2(WebDriver driver, String tipo, String link, String nombreAdjunto, String idImagenR)
-            throws IOException {
-        try {
-
-            titleColor(driver, "CREAR ADJUNTO");
-            click(driver, btnArchivos);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            By headerImg = By.xpath("//div//div[text()='" + nombreAdjunto + "']");
-            WebElement headerImgWE = encontrarElemento(driver, headerImg);
-            verifyIfElementExists(driver, nombreAdjunto, headerImg);
-            click(driver, btnNuevo);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(2));
-            Thread.sleep(3000);
-            optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
-            clickJS(driver, dropdownTipoAdjunto);
-            clickJS(driver, optionTipoAdjunto);
-            // System.out.println("HOME: " + System.getProperty("user.dir"));
-            driver.findElement(btnFile).sendKeys(link);
-            Thread.sleep(2000);
-            sendKeys(driver, tituloAdjunto, nombreAdjunto);
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-            idImagenR = getNoteIdApi(driver.getCurrentUrl()); // TODO CAMBIAR A INT
-            System.out.println("ID IMAGEN: " + idImagenR);
-            driver.close();
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            // System.out.println("VALOR IMAGEN: " + idImagen);
-            headerImagen = By.xpath("//article[@id='Result" + idImagenR + "']");
-            sendKeys(driver, inputFiltrar, nombreAdjunto);
-            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            visibilityOf(driver, headerImagen);
-            driver.close();
-            Thread.sleep(1000);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            okColor(driver, "CREAR ADJUNTO");
-            endColor(driver, "CREAR ADJUNTO");
-            return idImagenR;
-        } catch (Exception e) {
-            errorColor(driver, "NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e, e);
-            return idImagenR;
-        }
-
-    }
-
-    public String createAttach3(WebDriver driver, String tipo, String link, String nombreAdjunto, String idImagenR)
-            throws IOException {
-        try {
-
-            titleColor(driver, "CREAR ADJUNTO");
-            click(driver, btnArchivos);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            By headerImg = By.xpath("//div//div[text()='" + nombreAdjunto + "']");
-            WebElement headerImgWE = encontrarElemento(driver, headerImg);
-            verifyIfElementExists(driver, nombreAdjunto, headerImg);
-            click(driver, btnNuevo);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(2));
-            Thread.sleep(3000);
-            optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
-            clickJS(driver, dropdownTipoAdjunto);
-            clickJS(driver, optionTipoAdjunto);
-            // System.out.println("HOME: " + System.getProperty("user.dir"));
-            driver.findElement(btnFile).sendKeys(link);
-            Thread.sleep(2000);
-            sendKeys(driver, tituloAdjunto, nombreAdjunto);
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-            idImagenR = getNoteIdApi(driver.getCurrentUrl()); // TODO CAMBIAR A INT
-            System.out.println("ID IMAGEN: " + idImagenR);
-            driver.close();
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            // System.out.println("VALOR IMAGEN: " + idImagen);
-            headerImagen = By.xpath("//article[@id='Result" + idImagenR + "']");
-            sendKeys(driver, inputFiltrar, nombreAdjunto);
-            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            visibilityOf(driver, headerImagen);
-            driver.close();
-            Thread.sleep(1000);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            okColor(driver, "CREAR ADJUNTO");
-            endColor(driver, "CREAR ADJUNTO");
-            return idImagenR;
-        } catch (Exception e) {
-            errorColor(driver, "NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e, e);
-            return idImagenR;
-        }
-
-    }
+//
+//    public String createAttach2(WebDriver driver, String tipo, String link, String nombreAdjunto, String idImagenR)
+//            throws IOException {
+//        try {
+//
+//            titleColor(driver, "CREAR ADJUNTO");
+//            click(driver, btnArchivos);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            By headerImg = By.xpath("//div//div[text()='" + nombreAdjunto + "']");
+//            WebElement headerImgWE = encontrarElemento(driver, headerImg);
+//            verifyIfElementExists(driver, nombreAdjunto, headerImg);
+//            click(driver, btnNuevo);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(2));
+//            Thread.sleep(3000);
+//            optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
+//            clickJS(driver, dropdownTipoAdjunto);
+//            clickJS(driver, optionTipoAdjunto);
+//            // System.out.println("HOME: " + System.getProperty("user.dir"));
+//            driver.findElement(btnFile).sendKeys(link);
+//            Thread.sleep(2000);
+//            sendKeys(driver, tituloAdjunto, nombreAdjunto);
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//            idImagenR = getNoteIdApi(driver.getCurrentUrl()); // TODO CAMBIAR A INT
+//            System.out.println("ID IMAGEN: " + idImagenR);
+//            driver.close();
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            // System.out.println("VALOR IMAGEN: " + idImagen);
+//            headerImagen = By.xpath("//article[@id='Result" + idImagenR + "']");
+//            sendKeys(driver, inputFiltrar, nombreAdjunto);
+//            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//            visibilityOf(driver, headerImagen);
+//            driver.close();
+//            Thread.sleep(1000);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            okColor(driver, "CREAR ADJUNTO");
+//            endColor(driver, "CREAR ADJUNTO");
+//            return idImagenR;
+//        } catch (Exception e) {
+//            errorColor(driver, "NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e, e);
+//            return idImagenR;
+//        }
+//
+//    }
+//
+//    public String createAttach3(WebDriver driver, String tipo, String link, String nombreAdjunto, String idImagenR)
+//            throws IOException {
+//        try {
+//
+//            titleColor(driver, "CREAR ADJUNTO");
+//            click(driver, btnArchivos);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            By headerImg = By.xpath("//div//div[text()='" + nombreAdjunto + "']");
+//            WebElement headerImgWE = encontrarElemento(driver, headerImg);
+//            verifyIfElementExists(driver, nombreAdjunto, headerImg);
+//            click(driver, btnNuevo);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(2));
+//            Thread.sleep(3000);
+//            optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
+//            clickJS(driver, dropdownTipoAdjunto);
+//            clickJS(driver, optionTipoAdjunto);
+//            // System.out.println("HOME: " + System.getProperty("user.dir"));
+//            driver.findElement(btnFile).sendKeys(link);
+//            Thread.sleep(2000);
+//            sendKeys(driver, tituloAdjunto, nombreAdjunto);
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//            idImagenR = getNoteIdApi(driver.getCurrentUrl()); // TODO CAMBIAR A INT
+//            System.out.println("ID IMAGEN: " + idImagenR);
+//            driver.close();
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            // System.out.println("VALOR IMAGEN: " + idImagen);
+//            headerImagen = By.xpath("//article[@id='Result" + idImagenR + "']");
+//            sendKeys(driver, inputFiltrar, nombreAdjunto);
+//            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//            visibilityOf(driver, headerImagen);
+//            driver.close();
+//            Thread.sleep(1000);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            okColor(driver, "CREAR ADJUNTO");
+//            endColor(driver, "CREAR ADJUNTO");
+//            return idImagenR;
+//        } catch (Exception e) {
+//            errorColor(driver, "NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e, e);
+//            return idImagenR;
+//        }
+//
+//    }
 
 
     public void deleteAttach(WebDriver driver, String attachName, String test)  {

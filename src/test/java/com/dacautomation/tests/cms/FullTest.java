@@ -254,12 +254,12 @@
 //            // idImagen = "6249575";
 //            // createFreeText(driver2, "TD AUTOMATION TEXTO LIBRE", "PRUEBA TEXTO");
 //
-             createNoteFull(driver2, "TD AUTOMATION Nota", "Volanta auto", "Copete auto",
-             txtCuerpo,
-             "TD AUTOMATION Tag", "Tema",
-             "TD AUTOMATION Category", "TD AUTOMATION Imagen", "Publicado", "TD AUTOMATION
-             Persona",
-             "Subtitulo H2", "Adjuntos", user, pass,test);
+//             createNoteFull(driver2, "TD AUTOMATION Nota", "Volanta auto", "Copete auto",
+//             txtCuerpo,
+//             "TD AUTOMATION Tag", "Tema",
+//             "TD AUTOMATION Category", "TD AUTOMATION Imagen", "Publicado", "TD AUTOMATION
+//             Persona",
+//             "Subtitulo H2", "Adjuntos", user, pass,test);
 //
             // deleteNote(driver2, "TD AUTOMATION Nota");
             // deleteTag(driver2, "TD AUTOMATION Tag");

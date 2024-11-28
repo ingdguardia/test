@@ -57,7 +57,7 @@ public class cms_base {
 
     //VARIABLES
 
-    String tituloNota;
+    static String tituloNota;
     String idNota;
     boolean ok = false;
 
@@ -766,7 +766,7 @@ public class cms_base {
 
             osName = System.getenv("HOME");
             if (osName.contains("jenkins")) { jobname = System.getenv("JOB_NAME");}
-            else { jobname = "CMS4-Staging/Indalo-Staging";}
+            else { jobname = "CMS4-Staging/ElObservador-Staging";}
 
             if (jobname == null) {
                 System.err.println("ERROR: No se encuentra nombre del job");
@@ -1682,346 +1682,346 @@ public class cms_base {
     }
 
 
-
-    public void deleteTDElement(WebDriver driver, String seccion, String nombreObjeto) throws IOException {
-        try {
-            System.out.println("##############BORRANDO " + seccion.toUpperCase() + "##############");
-            System.out.println(driver.getCurrentUrl());
-            Thread.sleep(5000);
-            By btnObjeto = By.xpath("//span[text()='" + seccion + "']");
-            if (driver.getCurrentUrl().equals(url + "administrator/cabezales")) {
-                System.out.println(url + "administrator/cabezales");
-                System.out.println("##############SECCION CABEZAL OK##############");
-                sendKeys(driver, inputFiltrar, nombreObjeto);
-                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            } else {
-                System.out.println("##############CLICK SECCION CABEZAL##############");
-                click(driver, dropdownHomePortal);
-                click(driver, btnObjeto);
-                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-                tabs = new ArrayList<String>(driver.getWindowHandles());
-                driver.switchTo().window(tabs.get(1));
-                sendKeys(driver, inputFiltrar, nombreObjeto);
-                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            }
-            // goToSection(driver, seccion);
-            setHeaderNote(nombreObjeto);
-            click(driver, headerObjeto);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(2));
-            Thread.sleep(3000);
-            clickJS(driver, btnInfo);
-            clickJS(driver, btnEliminar);
-            clickJS(driver, btnSi);
-            driver.switchTo().window(tabs.get(1));
-            sendKeys(driver, inputFiltrar, nombreObjeto);
-            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            visibiltyOf(driver, lblNotFound);
-            driver.close();
-            driver.switchTo().window(tabs.get(0));
-            System.out.println("##############" + seccion.toUpperCase() + " BORRADO##############");
-        } catch (Exception e) {
-            errorColor(driver, "ERROR, NO SE PUDO BORRAR EL ELEMENTO" + nombreObjeto + " RAZON: " + e, e);
-            screenshot(driver, "ERROR BORRAR " + nombreObjeto);
-        }
-    }
-
-
-
-    public void checkAndDelete(WebDriver driver, String element, String seccion)
-            throws IOException, InterruptedException {
-        sendKeys(driver, inputFiltrar, element);
-        driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-        headerObjeto = setHeaderNote(element);
-        visibiltyOf(driver, headerObjeto);
-        click(driver, headerObjeto);
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(2));
-        Thread.sleep(5000);
-        clickJS(driver, btnInfo);
-        clickJS(driver, btnEliminar);
-        clickJS(driver, btnSi);
-        driver.switchTo().window(tabs.get(1));
-        sendKeys(driver, inputFiltrar, element);
-        driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-        visibiltyOf(driver, lblNotFound);
-    }
-
-    public boolean isAlertPresent(WebDriver driver) {
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            new Actions(driver)
-                    .sendKeys(Keys.ENTER)
-                    .perform();
-            return true;
-        } catch (NoAlertPresentException Ex) {
-            Exception e;
-            errorColor(driver, ANSI_RED_BACKGROUND + Ex, e);
-            return false;
-        }
-    }
+//
+//    public void deleteTDElement(WebDriver driver, String seccion, String nombreObjeto) throws IOException {
+//        try {
+//            System.out.println("##############BORRANDO " + seccion.toUpperCase() + "##############");
+//            System.out.println(driver.getCurrentUrl());
+//            Thread.sleep(5000);
+//            By btnObjeto = By.xpath("//span[text()='" + seccion + "']");
+//            if (driver.getCurrentUrl().equals(url + "administrator/cabezales")) {
+//                System.out.println(url + "administrator/cabezales");
+//                System.out.println("##############SECCION CABEZAL OK##############");
+//                sendKeys(driver, inputFiltrar, nombreObjeto);
+//                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//            } else {
+//                System.out.println("##############CLICK SECCION CABEZAL##############");
+//                click(driver, dropdownHomePortal);
+//                click(driver, btnObjeto);
+//                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//                tabs = new ArrayList<String>(driver.getWindowHandles());
+//                driver.switchTo().window(tabs.get(1));
+//                sendKeys(driver, inputFiltrar, nombreObjeto);
+//                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//            }
+//            // goToSection(driver, seccion);
+//            setHeaderNote(nombreObjeto);
+//            click(driver, headerObjeto);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(2));
+//            Thread.sleep(3000);
+//            clickJS(driver, btnInfo);
+//            clickJS(driver, btnEliminar);
+//            clickJS(driver, btnSi);
+//            driver.switchTo().window(tabs.get(1));
+//            sendKeys(driver, inputFiltrar, nombreObjeto);
+//            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//            visibiltyOf(driver, lblNotFound);
+//            driver.close();
+//            driver.switchTo().window(tabs.get(0));
+//            System.out.println("##############" + seccion.toUpperCase() + " BORRADO##############");
+//        } catch (Exception e) {
+//            errorColor(driver, "ERROR, NO SE PUDO BORRAR EL ELEMENTO" + nombreObjeto + " RAZON: " + e, e);
+//            screenshot(driver, "ERROR BORRAR " + nombreObjeto);
+//        }
+//    }
 
 
-    public void filterNote(WebDriver driver) {
-        try {
-            // CHECKEAR POR TITULO Y CAMBIAR
-            // TODO TEXTO TITULO
-            Thread.sleep(1000);
-            headerObjeto = setHeaderNote("titulo modificado");
-            verifyIfElementExists(driver, "titulo modificado", headerObjeto);
-            headerObjeto = setHeaderNote("titulo");
-            verifyIfElementExists(driver, "titulo", headerObjeto);
-            clickJS(driver, btnNuevo, "BOTON NUEVO");
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            checkTitlePage(driver, "Sin Titulo");
-            Thread.sleep(7000);
-            driver.switchTo().frame("cuerpoiframe");
-            sendKeys(driver, inputCuerpoNota, "cuerpo", "INPUT CUERPO");
-            driver.switchTo().parentFrame();
-            sendKeys(driver, inputVolantaNota, "volanta", "INPUT VOLANTA");
-            sendKeys(driver, inputTituloNota, "titulo", "INPUT TITULO");
-            WebElement copeteComun = encontrarElemento(driver, inputCopeteNota);
-            WebElement copeteEnriquecido = encontrarElemento(driver, inputCuerpoNota);
-
-            if (copeteComun != null) {
-                sendKeys(driver, inputCopeteNota, "copete", "INPUT COPETE");
-            } else if (copeteEnriquecido != null) {
-                driver.switchTo().frame("copeteiframe");
-                System.out.println("switch copete iframe");
-                sendKeys(driver, inputCuerpoNota, "copete", "INPUT CUERPO");
-                driver.switchTo().parentFrame();
-                System.out.println("switch parent frame");
-            }
-
-            clickJS(driver, btnGrabar, "BOTON GRABAR");
-            presenceOf(driver, alertGuardado);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.close();
-            driver.switchTo().window(tabs.get(0));
-            visibiltyOf(driver, btnNuevo);
-            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            // obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            // By tituloNotaExtraida = By.xpath("(//h2[@class='title'])[1]");
-            // WebElement textoTitulo = encontrarElemento(driver, tituloNotaExtraida);
-            // String titulo = textoTitulo.getText();
-            headerObjeto = setHeaderNote("titulo");
-            sendKeys(driver, inputFiltrar, "titulo", "INPUT TITULO");
-            click(driver, headerObjeto, "HEADER NOTA");
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            checkValueElement(driver, inputTituloNota, "titulo");
-            Thread.sleep(4000);
-
-            sendKeys(driver, inputTituloNota, "titulo modificado", "INPUT TITULO");
-            clickJS(driver, btnGrabar, "BOTON GRABAR");
-            presenceOf(driver, alertGuardado);
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            sendKeys(driver, inputFiltrar, "titulo modificado", "INPUT FILTRAR");
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote("titulo modificado");
-            click(driver, headerObjeto, "HEADER NOTA");
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            checkValueElement(driver, inputTituloNota, "titulo modificado");
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Titulo']");
-            clickJS(driver, checkboxContenidoFiltroNota, "CHECKBOX CONTENIDO");
-            // Thread.sleep(2000);
-            filtrarFecha(driver, "titulo modificado");
-            filtrarEstado(driver);
-            filtrarContenido(driver);
-
-        } catch (Exception e) {
-            errorColor(driver, "TEST FILTRAR CHECKBOX", e);
-        }
-
-    }
-
-    public void filterAttach(WebDriver driver, String titulo) {
-        try {
-            clickJS(driver, btnArchivos);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            checkboxContenidoFiltroNota = By.xpath("//label//span[contains(text(),'Último año')]");
-            WebElement anio1 = encontrarElemento(driver, checkboxContenidoFiltroNota);
-            if (anio1 != null) {
-                clickJS(driver, checkboxContenidoFiltroNota);
-                Thread.sleep(1000);
-            } else {
-                checkboxContenidoFiltroNota = By.xpath("//label//span[contains(text(),'Último Año')]");
-                clickJS(driver, checkboxContenidoFiltroNota);
-                Thread.sleep(1000);
-            }
-
-            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Imagen']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            sendKeys(driver, inputFiltrar, "TD AUTOMATION Imagen");// ARREGLAR
-            Thread.sleep(2000);
-            By obj = By.xpath("//div[@id='cms-results']//article");
-            // visibiltyOf(driver, obj);
-            WebElement buscar = encontrarElemento(driver, obj);
-            if (buscar != null) {
-                visibiltyOf(driver, obj);
-            } else {
-                visibiltyOf(driver, lblNotFound);
-            }
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(1000);
-            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Agrupador']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            sendKeys(driver, inputFiltrar, "Chayanne");
-            Thread.sleep(2000);
-            obj = By.xpath("//div[@id='cms-results']//article");
-            visibiltyOf(driver, obj);
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(1000);
-            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Audio']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            sendKeys(driver, inputFiltrar, "relacionar");
-            Thread.sleep(2000);
-            obj = By.xpath("//div[@id='cms-results']//article");
-            visibiltyOf(driver, obj);
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(1000);
-            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Autor']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            sendKeys(driver, inputFiltrar, "automation");
-            Thread.sleep(2000);
-            obj = By.xpath("//div[@id='cms-results']//article");
-            visibiltyOf(driver, obj);
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(1000);
-            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Background']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            sendKeys(driver, inputFiltrar, "background");
-            Thread.sleep(2000);
-            obj = By.xpath("//div[@id='cms-results']//article");
-            visibiltyOf(driver, obj);
-            filtrarFecha(driver, titulo);
-        } catch (Exception e) {
-            errorColor(driver, "TEST FILTRAR ADJUNTO", e);
-        }
-    }
-
-    public void filterBanner(WebDriver driver, String titulo) {
-        try {
-            clickJS(driver, btnBanners);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            filtrarFecha(driver, titulo);
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-        } catch (Exception e) {
-            errorColor(driver, "Filtro Banner", e);
-        }
-
-    }
-
-
-
-    public void filterDates(WebDriver driver, String filtro1, String titulo) throws IOException, InterruptedException {
-        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='" + filtro1 + "']");
-        clickJS(driver, checkboxContenidoFiltroNota);
-        sendKeys(driver, inputFiltrar, titulo);
-        Thread.sleep(1000);
-        List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-        obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-        headerObjeto = setHeaderNote(titulo);
-        // visibiltyOf(driver, headerObjeto);
-        visibleElementOnFilter(driver, headerObjeto, titulo);
-        clickJS(driver, checkboxContenidoFiltroNota);
-        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Definir']");
-        clickJS(driver, checkboxContenidoFiltroNota);
-        Thread.sleep(2000);
-        clickJS2(driver, calendarMonth);
-        By calendarValue = By.xpath("//li//span[text()='sep']");
-        clickJS(driver, calendarValue);
-        Thread.sleep(1000);
-        clickJS(driver, calendarYear);
-        calendarValue = By.xpath("//li//span[text()='2023']");
-        clickJS(driver, calendarValue);
-        Thread.sleep(1000);
-        calendarDay = By.xpath("//tr//td//button[@data-day='1']");
-        clickJS(driver, calendarDay);
-        Thread.sleep(3000);
-        calendarMonth = By.xpath("(//*[@class='datepicker-controls']/div/div[1]/input)[2]");
-        clickJS(driver, calendarMonth);
-        calendarValue = By.xpath("(//li//span[text()='oct'])[2]");
-        clickJS(driver, calendarValue);
-        Thread.sleep(1000);
-        calendarYear = By.xpath("(//*[@class='datepicker-controls']/div/div[2]/input)[2]");
-        clickJS(driver, calendarYear);
-        calendarValue = By.xpath("(//li//span[text()='2023'])[2]");
-        clickJS(driver, calendarValue);
-        Thread.sleep(1000);
-        calendarDay = By.xpath("(//tr//td//button[@data-day='17'])[2]");
-        Thread.sleep(1000);
-        clickJS(driver, calendarDay);
-        Thread.sleep(2000);
-        visibleElementOnFilter(driver, headerObjeto, titulo);
-        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='" + filtro1 + "']");
-        clickJS(driver, checkboxContenidoFiltroNota);
-    }
-
-
-
-    public void filtrarNota(WebDriver driver, String tituloNota) {
-        try {
-            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            sendKeys(driver, inputFiltrar, tituloNota);
-            Thread.sleep(1000);
-            // List<WebElement> obj =
-            // driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote(tituloNota);
-            click(driver, headerObjeto);
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            checkValueElement(driver, inputTituloNota, tituloNota);
-            sendKeys(driver, inputTituloNota, "titulo modificado");
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            sendKeys(driver, inputFiltrar, "titulo modificado");
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote(tituloNota);
-            click(driver, headerObjeto);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            checkValueElement(driver, inputTituloNota, "titulo modificado");
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Titulo']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-        } catch (Exception e) {
-            errorColor(driver, "FILTRAR NOTA", e);
-        }
-    }
+//
+//    public void checkAndDelete(WebDriver driver, String element, String seccion)
+//            throws IOException, InterruptedException {
+//        sendKeys(driver, inputFiltrar, element);
+//        driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//        headerObjeto = setHeaderNote(element);
+//        visibiltyOf(driver, headerObjeto);
+//        click(driver, headerObjeto);
+//        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//        tabs = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs.get(2));
+//        Thread.sleep(5000);
+//        clickJS(driver, btnInfo);
+//        clickJS(driver, btnEliminar);
+//        clickJS(driver, btnSi);
+//        driver.switchTo().window(tabs.get(1));
+//        sendKeys(driver, inputFiltrar, element);
+//        driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+//        visibiltyOf(driver, lblNotFound);
+//    }
+//
+//    public boolean isAlertPresent(WebDriver driver) {
+//        try {
+//            Alert alert = driver.switchTo().alert();
+//            alert.accept();
+//            new Actions(driver)
+//                    .sendKeys(Keys.ENTER)
+//                    .perform();
+//            return true;
+//        } catch (NoAlertPresentException Ex) {
+//            Exception e;
+//            errorColor(driver, ANSI_RED_BACKGROUND + Ex, e);
+//            return false;
+//        }
+//    }
+//
+//
+//    public void filterNote(WebDriver driver) {
+//        try {
+//            // CHECKEAR POR TITULO Y CAMBIAR
+//            // TODO TEXTO TITULO
+//            Thread.sleep(1000);
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            verifyIfElementExists(driver, "titulo modificado", headerObjeto);
+//            headerObjeto = setHeaderNote("titulo");
+//            verifyIfElementExists(driver, "titulo", headerObjeto);
+//            clickJS(driver, btnNuevo, "BOTON NUEVO");
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            checkTitlePage(driver, "Sin Titulo");
+//            Thread.sleep(7000);
+//            driver.switchTo().frame("cuerpoiframe");
+//            sendKeys(driver, inputCuerpoNota, "cuerpo", "INPUT CUERPO");
+//            driver.switchTo().parentFrame();
+//            sendKeys(driver, inputVolantaNota, "volanta", "INPUT VOLANTA");
+//            sendKeys(driver, inputTituloNota, "titulo", "INPUT TITULO");
+//            WebElement copeteComun = encontrarElemento(driver, inputCopeteNota);
+//            WebElement copeteEnriquecido = encontrarElemento(driver, inputCuerpoNota);
+//
+//            if (copeteComun != null) {
+//                sendKeys(driver, inputCopeteNota, "copete", "INPUT COPETE");
+//            } else if (copeteEnriquecido != null) {
+//                driver.switchTo().frame("copeteiframe");
+//                System.out.println("switch copete iframe");
+//                sendKeys(driver, inputCuerpoNota, "copete", "INPUT CUERPO");
+//                driver.switchTo().parentFrame();
+//                System.out.println("switch parent frame");
+//            }
+//
+//            clickJS(driver, btnGrabar, "BOTON GRABAR");
+//            presenceOf(driver, alertGuardado);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.close();
+//            driver.switchTo().window(tabs.get(0));
+//            visibiltyOf(driver, btnNuevo);
+//            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            // obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            // By tituloNotaExtraida = By.xpath("(//h2[@class='title'])[1]");
+//            // WebElement textoTitulo = encontrarElemento(driver, tituloNotaExtraida);
+//            // String titulo = textoTitulo.getText();
+//            headerObjeto = setHeaderNote("titulo");
+//            sendKeys(driver, inputFiltrar, "titulo", "INPUT TITULO");
+//            click(driver, headerObjeto, "HEADER NOTA");
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            checkValueElement(driver, inputTituloNota, "titulo");
+//            Thread.sleep(4000);
+//
+//            sendKeys(driver, inputTituloNota, "titulo modificado", "INPUT TITULO");
+//            clickJS(driver, btnGrabar, "BOTON GRABAR");
+//            presenceOf(driver, alertGuardado);
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            sendKeys(driver, inputFiltrar, "titulo modificado", "INPUT FILTRAR");
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            click(driver, headerObjeto, "HEADER NOTA");
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            checkValueElement(driver, inputTituloNota, "titulo modificado");
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Titulo']");
+//            clickJS(driver, checkboxContenidoFiltroNota, "CHECKBOX CONTENIDO");
+//            // Thread.sleep(2000);
+//            filtrarFecha(driver, "titulo modificado");
+//            filtrarEstado(driver);
+//            filtrarContenido(driver);
+//
+//        } catch (Exception e) {
+//            errorColor(driver, "TEST FILTRAR CHECKBOX", e);
+//        }
+//
+//    }
+//
+//    public void filterAttach(WebDriver driver, String titulo) {
+//        try {
+//            clickJS(driver, btnArchivos);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[contains(text(),'Último año')]");
+//            WebElement anio1 = encontrarElemento(driver, checkboxContenidoFiltroNota);
+//            if (anio1 != null) {
+//                clickJS(driver, checkboxContenidoFiltroNota);
+//                Thread.sleep(1000);
+//            } else {
+//                checkboxContenidoFiltroNota = By.xpath("//label//span[contains(text(),'Último Año')]");
+//                clickJS(driver, checkboxContenidoFiltroNota);
+//                Thread.sleep(1000);
+//            }
+//
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Imagen']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            sendKeys(driver, inputFiltrar, "TD AUTOMATION Imagen");// ARREGLAR
+//            Thread.sleep(2000);
+//            By obj = By.xpath("//div[@id='cms-results']//article");
+//            // visibiltyOf(driver, obj);
+//            WebElement buscar = encontrarElemento(driver, obj);
+//            if (buscar != null) {
+//                visibiltyOf(driver, obj);
+//            } else {
+//                visibiltyOf(driver, lblNotFound);
+//            }
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(1000);
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Agrupador']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            sendKeys(driver, inputFiltrar, "Chayanne");
+//            Thread.sleep(2000);
+//            obj = By.xpath("//div[@id='cms-results']//article");
+//            visibiltyOf(driver, obj);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(1000);
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Audio']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            sendKeys(driver, inputFiltrar, "relacionar");
+//            Thread.sleep(2000);
+//            obj = By.xpath("//div[@id='cms-results']//article");
+//            visibiltyOf(driver, obj);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(1000);
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Autor']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            sendKeys(driver, inputFiltrar, "automation");
+//            Thread.sleep(2000);
+//            obj = By.xpath("//div[@id='cms-results']//article");
+//            visibiltyOf(driver, obj);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(1000);
+//            checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Background']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            sendKeys(driver, inputFiltrar, "background");
+//            Thread.sleep(2000);
+//            obj = By.xpath("//div[@id='cms-results']//article");
+//            visibiltyOf(driver, obj);
+//            filtrarFecha(driver, titulo);
+//        } catch (Exception e) {
+//            errorColor(driver, "TEST FILTRAR ADJUNTO", e);
+//        }
+//    }
+//
+//    public void filterBanner(WebDriver driver, String titulo) {
+//        try {
+//            clickJS(driver, btnBanners);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            filtrarFecha(driver, titulo);
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//        } catch (Exception e) {
+//            errorColor(driver, "Filtro Banner", e);
+//        }
+//
+//    }
+//
+//
+//
+//    public void filterDates(WebDriver driver, String filtro1, String titulo) throws IOException, InterruptedException {
+//        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='" + filtro1 + "']");
+//        clickJS(driver, checkboxContenidoFiltroNota);
+//        sendKeys(driver, inputFiltrar, titulo);
+//        Thread.sleep(1000);
+//        List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//        obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//        headerObjeto = setHeaderNote(titulo);
+//        // visibiltyOf(driver, headerObjeto);
+//        visibleElementOnFilter(driver, headerObjeto, titulo);
+//        clickJS(driver, checkboxContenidoFiltroNota);
+//        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='Definir']");
+//        clickJS(driver, checkboxContenidoFiltroNota);
+//        Thread.sleep(2000);
+//        clickJS2(driver, calendarMonth);
+//        By calendarValue = By.xpath("//li//span[text()='sep']");
+//        clickJS(driver, calendarValue);
+//        Thread.sleep(1000);
+//        clickJS(driver, calendarYear);
+//        calendarValue = By.xpath("//li//span[text()='2023']");
+//        clickJS(driver, calendarValue);
+//        Thread.sleep(1000);
+//        calendarDay = By.xpath("//tr//td//button[@data-day='1']");
+//        clickJS(driver, calendarDay);
+//        Thread.sleep(3000);
+//        calendarMonth = By.xpath("(//*[@class='datepicker-controls']/div/div[1]/input)[2]");
+//        clickJS(driver, calendarMonth);
+//        calendarValue = By.xpath("(//li//span[text()='oct'])[2]");
+//        clickJS(driver, calendarValue);
+//        Thread.sleep(1000);
+//        calendarYear = By.xpath("(//*[@class='datepicker-controls']/div/div[2]/input)[2]");
+//        clickJS(driver, calendarYear);
+//        calendarValue = By.xpath("(//li//span[text()='2023'])[2]");
+//        clickJS(driver, calendarValue);
+//        Thread.sleep(1000);
+//        calendarDay = By.xpath("(//tr//td//button[@data-day='17'])[2]");
+//        Thread.sleep(1000);
+//        clickJS(driver, calendarDay);
+//        Thread.sleep(2000);
+//        visibleElementOnFilter(driver, headerObjeto, titulo);
+//        checkboxContenidoFiltroNota = By.xpath("//label//span[text()='" + filtro1 + "']");
+//        clickJS(driver, checkboxContenidoFiltroNota);
+//    }
+//
+//
+//
+//    public void filtrarNota(WebDriver driver, String tituloNota) {
+//        try {
+//            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            sendKeys(driver, inputFiltrar, tituloNota);
+//            Thread.sleep(1000);
+//            // List<WebElement> obj =
+//            // driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote(tituloNota);
+//            click(driver, headerObjeto);
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            checkValueElement(driver, inputTituloNota, tituloNota);
+//            sendKeys(driver, inputTituloNota, "titulo modificado");
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            sendKeys(driver, inputFiltrar, "titulo modificado");
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote(tituloNota);
+//            click(driver, headerObjeto);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            checkValueElement(driver, inputTituloNota, "titulo modificado");
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Titulo']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//        } catch (Exception e) {
+//            errorColor(driver, "FILTRAR NOTA", e);
+//        }
+//    }
 
     public static void checkValueElement(WebDriver driver, By locator, String valor, String test) {
         try{
@@ -2035,181 +2035,181 @@ public class cms_base {
         }
 
     }
-
-    public void filtrarFecha2(WebDriver driver, String titulo) {
-        try {
-            LocalDate fechaActual = LocalDate.now();
-
-            // Obtener el día, mes y año
-            int dia = fechaActual.getDayOfMonth();
-            String mes = fechaActual.getMonth().toString().substring(0, 3).toLowerCase();
-            int año = fechaActual.getYear();
-
-            // Formatear el mes a tres letras minúsculas
-            Locale locale = new Locale("es", "ES");
-            DateTimeFormatter formatoMes = DateTimeFormatter.ofPattern("MMM", locale);
-            String mesAbreviado = fechaActual.format(formatoMes).toLowerCase();
-
-            // List<WebElement> obj =
-            // driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            // CHECKEAR FECHA
-            checkboxContenidoFiltroNota = By.xpath("//span[text()='Último Mes']");
-            // WebElement checkBoxMes1 =
-            // encontrarElemento(driver,checkboxContenidoFiltroNota);
-
-            clickJS(driver, checkboxContenidoFiltroNota);
-            sendKeys(driver, inputFiltrar, titulo);
-            Thread.sleep(3000);
-            WebElement nullSearch = encontrarElemento(driver, lblNotFound);
-            if (nullSearch != null) {
-                headerObjeto = lblNotFound;
-                visibiltyOf(driver, headerObjeto);
-            } else {
-
-                List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-                obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-                headerObjeto = setHeaderNote(titulo);
-                visibiltyOf(driver, headerObjeto);
-            }
-
-            clickJS(driver, checkboxContenidoFiltroNota);
-            checkboxContenidoFiltroNota = By.xpath("//span[text()='Definir']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(2000);
-            clickJS2(driver, calendarMonth);
-            By calendarValue = By.xpath("//li//span[text()='sep']");
-            clickJS(driver, calendarValue);
-            Thread.sleep(1000);
-            clickJS(driver, calendarYear);
-            calendarValue = By.xpath("//li//span[text()='2023']");
-            clickJS(driver, calendarValue);
-            Thread.sleep(1000);
-            calendarDay = By.xpath("//tr//td//button[@data-day='1']");
-            clickJS(driver, calendarDay);
-            Thread.sleep(3000);
-            calendarMonth = By.xpath("(//*[@class='datepicker-controls']/div/div[1]/input)[2]");
-            clickJS(driver, calendarMonth);
-            calendarValue = By.xpath("(//li//span[text()='" + mesAbreviado + "'])[2]");
-            clickJS(driver, calendarValue);
-            Thread.sleep(1000);
-            calendarYear = By.xpath("(//*[@class='datepicker-controls']/div/div[2]/input)[2]");
-            clickJS(driver, calendarYear);
-            calendarValue = By.xpath("(//li//span[text()='" + año + "'])[2]");
-            clickJS(driver, calendarValue);
-            Thread.sleep(1000);
-            calendarDay = By.xpath("(//tr//td//button[@data-day='" + dia + "'])[2]");
-            Thread.sleep(1000);
-            clickJS(driver, calendarDay);
-            Thread.sleep(2000);
-            visibiltyOf(driver, headerObjeto);
-
-            checkboxContenidoFiltroNota = By.xpath("//span[text()='Último Mes']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-        } catch (Exception e) {
-            errorColor(driver, "filtrar fecha", e);
-        }
-    }
-
-    public void filtrarEstado(WebDriver driver) {
-        try {
-            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            // CHECKEAR ESTADO
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='En Edición']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            Thread.sleep(4000);
-            System.out.println("aaaaaaaa");
-            sendKeys(driver, inputFiltrar, "titulo modificado");
-            Thread.sleep(1000);
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote("titulo modificado");
-            visibiltyOf(driver, headerObjeto);
-            click(driver, headerObjeto);
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            Thread.sleep(4000);
-            clickJS(driver, notaEstado);
-            optionNotaEstado = By.xpath("//div[@class='status-card']//div//span[text()='Publicado']");
-            clickJS(driver, optionNotaEstado);
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-            driver.close();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(0));
-            Thread.sleep(3000);
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Publicado']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-            sendKeys(driver, inputFiltrar, "titulo modificado");
-            Thread.sleep(3000);
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote("titulo modificado");
-            visibiltyOf(driver, headerObjeto);
-            clickJS(driver, checkboxContenidoFiltroNota);
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='En Edición']");
-            clickJS(driver, checkboxContenidoFiltroNota);
-        } catch (Exception e) {
-            errorColor(driver, "filtrar estado", e);
-        }
-    }
-
-    public void filtrarContenido(WebDriver driver) throws InterruptedException {
-        List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        // CHECKEAR CONTENIDO
-        checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota']");
-        clickJS(driver, checkboxContenidoFiltroNota);
-        // sendKeys(driver, inputFiltrar, "titulo modificado");
-        Thread.sleep(3000);
-        obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-        headerObjeto = setHeaderNote("titulo modificado");
-        visibiltyOf(driver, headerObjeto);
-        click(driver, headerObjeto);
-        tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        Thread.sleep(4000);
-        clickJS(driver, dropdownTipoContenidoNota);
-        optionTipoContenidoNota = By
-                .xpath("//div[@id='content_idCMSTipoContenido']//ul//li//span[text()='Nota Web']");
-        WebElement option1 = encontrarElemento(driver, optionTipoContenidoNota);
-        if (option1 != null) {
-            clickJS(driver, optionTipoContenidoNota);
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-        } else {
-            optionTipoContenidoNota = By
-                    .xpath("//div[@id='content_idCMSTipoContenido']//ul//li//span[text()='Nota LiveBlog']");
-            clickJS(driver, optionTipoContenidoNota);
-            clickJS(driver, btnGrabar);
-            presenceOf(driver, alertGuardado);
-
-        }
-        driver.close();
-        tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(0));
-        checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota Web']");
-        WebElement encontrar1 = encontrarElemento(driver, checkboxContenidoFiltroNota);
-        if (encontrar1 != null) {
-            clickJS(driver, checkboxContenidoFiltroNota);
-            sendKeys(driver, inputFiltrar, "titulo modificado");
-            Thread.sleep(1000);
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote("titulo modificado");
-            visibiltyOf(driver, headerObjeto);
-            clickJS(driver, checkboxContenidoFiltroNota);
-        } else {
-
-            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota LiveBlog']");
-
-            clickJS(driver, checkboxContenidoFiltroNota);
-            sendKeys(driver, inputFiltrar, "titulo modificado");
-            Thread.sleep(1000);
-            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
-            headerObjeto = setHeaderNote("titulo modificado");
-            visibiltyOf(driver, headerObjeto);
-            clickJS(driver, checkboxContenidoFiltroNota);
-        }
-    }
+//
+//    public void filtrarFecha2(WebDriver driver, String titulo) {
+//        try {
+//            LocalDate fechaActual = LocalDate.now();
+//
+//            // Obtener el día, mes y año
+//            int dia = fechaActual.getDayOfMonth();
+//            String mes = fechaActual.getMonth().toString().substring(0, 3).toLowerCase();
+//            int año = fechaActual.getYear();
+//
+//            // Formatear el mes a tres letras minúsculas
+//            Locale locale = new Locale("es", "ES");
+//            DateTimeFormatter formatoMes = DateTimeFormatter.ofPattern("MMM", locale);
+//            String mesAbreviado = fechaActual.format(formatoMes).toLowerCase();
+//
+//            // List<WebElement> obj =
+//            // driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            // CHECKEAR FECHA
+//            checkboxContenidoFiltroNota = By.xpath("//span[text()='Último Mes']");
+//            // WebElement checkBoxMes1 =
+//            // encontrarElemento(driver,checkboxContenidoFiltroNota);
+//
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            sendKeys(driver, inputFiltrar, titulo);
+//            Thread.sleep(3000);
+//            WebElement nullSearch = encontrarElemento(driver, lblNotFound);
+//            if (nullSearch != null) {
+//                headerObjeto = lblNotFound;
+//                visibiltyOf(driver, headerObjeto);
+//            } else {
+//
+//                List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//                obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//                headerObjeto = setHeaderNote(titulo);
+//                visibiltyOf(driver, headerObjeto);
+//            }
+//
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            checkboxContenidoFiltroNota = By.xpath("//span[text()='Definir']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(2000);
+//            clickJS2(driver, calendarMonth);
+//            By calendarValue = By.xpath("//li//span[text()='sep']");
+//            clickJS(driver, calendarValue);
+//            Thread.sleep(1000);
+//            clickJS(driver, calendarYear);
+//            calendarValue = By.xpath("//li//span[text()='2023']");
+//            clickJS(driver, calendarValue);
+//            Thread.sleep(1000);
+//            calendarDay = By.xpath("//tr//td//button[@data-day='1']");
+//            clickJS(driver, calendarDay);
+//            Thread.sleep(3000);
+//            calendarMonth = By.xpath("(//*[@class='datepicker-controls']/div/div[1]/input)[2]");
+//            clickJS(driver, calendarMonth);
+//            calendarValue = By.xpath("(//li//span[text()='" + mesAbreviado + "'])[2]");
+//            clickJS(driver, calendarValue);
+//            Thread.sleep(1000);
+//            calendarYear = By.xpath("(//*[@class='datepicker-controls']/div/div[2]/input)[2]");
+//            clickJS(driver, calendarYear);
+//            calendarValue = By.xpath("(//li//span[text()='" + año + "'])[2]");
+//            clickJS(driver, calendarValue);
+//            Thread.sleep(1000);
+//            calendarDay = By.xpath("(//tr//td//button[@data-day='" + dia + "'])[2]");
+//            Thread.sleep(1000);
+//            clickJS(driver, calendarDay);
+//            Thread.sleep(2000);
+//            visibiltyOf(driver, headerObjeto);
+//
+//            checkboxContenidoFiltroNota = By.xpath("//span[text()='Último Mes']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//        } catch (Exception e) {
+//            errorColor(driver, "filtrar fecha", e);
+//        }
+//    }
+//
+//    public void filtrarEstado(WebDriver driver) {
+//        try {
+//            List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//            // CHECKEAR ESTADO
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='En Edición']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            Thread.sleep(4000);
+//            System.out.println("aaaaaaaa");
+//            sendKeys(driver, inputFiltrar, "titulo modificado");
+//            Thread.sleep(1000);
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            visibiltyOf(driver, headerObjeto);
+//            click(driver, headerObjeto);
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(1));
+//            Thread.sleep(4000);
+//            clickJS(driver, notaEstado);
+//            optionNotaEstado = By.xpath("//div[@class='status-card']//div//span[text()='Publicado']");
+//            clickJS(driver, optionNotaEstado);
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//            driver.close();
+//            tabs = new ArrayList<String>(driver.getWindowHandles());
+//            driver.switchTo().window(tabs.get(0));
+//            Thread.sleep(3000);
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Publicado']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            sendKeys(driver, inputFiltrar, "titulo modificado");
+//            Thread.sleep(3000);
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            visibiltyOf(driver, headerObjeto);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='En Edición']");
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//        } catch (Exception e) {
+//            errorColor(driver, "filtrar estado", e);
+//        }
+//    }
+//
+//    public void filtrarContenido(WebDriver driver) throws InterruptedException {
+//        List<WebElement> obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//        // CHECKEAR CONTENIDO
+//        checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota']");
+//        clickJS(driver, checkboxContenidoFiltroNota);
+//        // sendKeys(driver, inputFiltrar, "titulo modificado");
+//        Thread.sleep(3000);
+//        obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//        headerObjeto = setHeaderNote("titulo modificado");
+//        visibiltyOf(driver, headerObjeto);
+//        click(driver, headerObjeto);
+//        tabs = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs.get(1));
+//        Thread.sleep(4000);
+//        clickJS(driver, dropdownTipoContenidoNota);
+//        optionTipoContenidoNota = By
+//                .xpath("//div[@id='content_idCMSTipoContenido']//ul//li//span[text()='Nota Web']");
+//        WebElement option1 = encontrarElemento(driver, optionTipoContenidoNota);
+//        if (option1 != null) {
+//            clickJS(driver, optionTipoContenidoNota);
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//        } else {
+//            optionTipoContenidoNota = By
+//                    .xpath("//div[@id='content_idCMSTipoContenido']//ul//li//span[text()='Nota LiveBlog']");
+//            clickJS(driver, optionTipoContenidoNota);
+//            clickJS(driver, btnGrabar);
+//            presenceOf(driver, alertGuardado);
+//
+//        }
+//        driver.close();
+//        tabs = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs.get(0));
+//        checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota Web']");
+//        WebElement encontrar1 = encontrarElemento(driver, checkboxContenidoFiltroNota);
+//        if (encontrar1 != null) {
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            sendKeys(driver, inputFiltrar, "titulo modificado");
+//            Thread.sleep(1000);
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            visibiltyOf(driver, headerObjeto);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//        } else {
+//
+//            checkboxContenidoFiltroNota = By.xpath("//label[@class='checkbox']//span[text()='Nota LiveBlog']");
+//
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//            sendKeys(driver, inputFiltrar, "titulo modificado");
+//            Thread.sleep(1000);
+//            obj = driver.findElements(By.xpath("//div[@id='cms-results']//article"));
+//            headerObjeto = setHeaderNote("titulo modificado");
+//            visibiltyOf(driver, headerObjeto);
+//            clickJS(driver, checkboxContenidoFiltroNota);
+//        }
+//    }
 
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="670.497" tests="4" errors="0" skipped="0" failures="4">
+<testsuite name="TestSuite" time="874.207" tests="3" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="idea.version" value="2024.2.4"/>
+    <property name="idea.version" value="2024.2.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="22.0.2+9-70"/>
     <property name="sun.boot.library.path" value="/Users/dario.guardia/Library/Java/JavaVirtualMachines/openjdk-22.0.2/Contents/Home/lib"/>
@@ -23,7 +23,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="stderr.encoding" value="UTF-8"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="maven.ext.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar"/>
+    <property name="maven.ext.class.path" value="/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven-event-listener.jar"/>
     <property name="classworlds.conf" value="/Users/dario.guardia/Downloads/apache-maven-3.9.2/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="stdout.encoding" value="UTF-8"/>
@@ -34,7 +34,7 @@
     <property name="java.class.version" value="66.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="15.0.1"/>
+    <property name="os.version" value="15.1.1"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/dario.guardia"/>
     <property name="user.timezone" value="America/Argentina/La_Rioja"/>
@@ -44,7 +44,7 @@
     <property name="java.class.path" value="/Users/dario.guardia/Downloads/apache-maven-3.9.2/boot/plexus-classworlds.license:/Users/dario.guardia/Downloads/apache-maven-3.9.2/boot/plexus-classworlds-2.7.0.jar"/>
     <property name="java.vm.specification.version" value="22"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2024.2.4 --fail-fast --strict-checksums clean:clean compile test -DtestType=prueba"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2024.2.3 --fail-fast --strict-checksums clean:clean compile test -DtestType=prueba"/>
     <property name="java.home" value="/Users/dario.guardia/Library/Java/JavaVirtualMachines/openjdk-22.0.2/Contents/Home"/>
     <property name="apple.awt.application.name" value="Launcher"/>
     <property name="user.language" value="es"/>
@@ -65,118 +65,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="baseTest" classname="com.dacautomation.tests.cms.chromeBaseTest1$BaseTest" time="167.525">
-    <failure message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;&#10;System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.0.1&apos;, java.version: &apos;22.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, close {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}" type="org.openqa.selenium.NoSuchSessionException">org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.0.1', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:152)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:590)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:594)
-	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:418)
-	at com.dacautomation.tests.cms.chromeBaseTest1$BaseTest.baseTest(chromeBaseTest1.java:89)
-</failure>
-    <system-out><![CDATA[[P4ssSt4g1ng, staging, elpatagonico-indalo.backend.staging.thinkindot.com, , P4ssSt4g1ng, staging, minutouno-indalo.backend.staging.thinkindot.com, , P4ssSt4g1ng, staging, ambito_uruguay-indalo.backend.staging.thinkindot.com, , P4ssSt4g1ng, staging, radio10-indalo.backend.staging.thinkindot.com, , P4ssSt4g1ng, staging, ambito-indalo.backend.staging.thinkindot.com, ]
-Numero de portales: 5
-&amp#27;[44m&amp#27;[30m[TEST2]: [START]: TEST BASE&amp#27;[0m
-&amp#27;[42m&amp#27;[30m[TEST1]: [START]: TEST BASE 1&amp#27;[0m
-&amp#27;[45m&amp#27;[30m[TEST3]: [START]: TEST BASE&amp#27;[0m
-https://ambito-indalo.backend.staging.thinkindot.com/backend/
-https://ambito_uruguay-indalo.backend.staging.thinkindot.com/backend/
-https://elpatagonico-indalo.backend.staging.thinkindot.com/backend/
-&amp#27;[42m&amp#27;[30m[TEST1]: [OK]: CREAR AGRUPADOR&amp#27;[0m
-&amp#27;[45m&amp#27;[30m[TEST3]: [OK]: CREAR AGRUPADOR&amp#27;[0m
-&amp#27;[44m&amp#27;[30m[TEST2]: [OK]: CREAR AGRUPADOR&amp#27;[0m
-&amp#27;[42m&amp#27;[30m[TEST1]: [OK]: CREAR CATEGORIA&amp#27;[0m
-&amp#27;[45m&amp#27;[30m[TEST3]: [OK]: CREAR CATEGORIA&amp#27;[0m
-&amp#27;[44m&amp#27;[30m[TEST2]: [OK]: CREAR CATEGORIA&amp#27;[0m
-&amp#27;[31m[ERROR TEST1]: &amp#27;[0m
-ELEMENTO: No se pudo verificar si el elemento esta presente:  By.xpath: (//div[contains(text(),'TD AUTOMATION Imagen')])[1] RAZON: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: (//div[contains(text(),'TD AUTOMATION Imagen')])[1] (tried for 15 second(s) with 500 milliseconds interval)
-&amp#27;[31m
-com.dacautomation.pages.cms.cms_base.estaPresenteTest(cms_base.java:1628)
-com.dacautomation.pages.cms.adjuntos.createAttach(adjuntos.java:67)
-com.dacautomation.tests.cms.chromeBaseTest1$BaseTest.baseTest(chromeBaseTest1.java:74)
-&amp#27;[0m
-PORTAL DONDE SE DIO EL ERROR: https://elpatagonico-indalo.backend.staging.thinkindot.com/backend/administrator/adjuntos
-LA CAPTURA SE GUARDO EN: Screenshots/TEST1.png
-]]></system-out>
-    <system-err>SLF4J(W): No SLF4J providers were found.
-SLF4J(W): Defaulting to no-operation (NOP) logger implementation
-SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-</system-err>
-  </testcase>
-  <testcase name="baseTest2" classname="com.dacautomation.tests.cms.chromeBaseTest2" time="167.621">
-    <failure message="Error communicating with the remote browser. It may have died.&#10;Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;&#10;System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.0.1&apos;, java.version: &apos;22.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [45c34ad162ae5ccc60dd092b3d9ec616, close {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 45c34ad162ae5ccc60dd092b3d9ec616" type="org.openqa.selenium.remote.UnreachableBrowserException">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.0.1', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [45c34ad162ae5ccc60dd092b3d9ec616, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 45c34ad162ae5ccc60dd092b3d9ec616
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1060)
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1570)
-</failure>
-  </testcase>
-  <testcase name="baseTest3" classname="com.dacautomation.tests.cms.chromeBaseTest3" time="167.621">
-    <failure message="Error communicating with the remote browser. It may have died.&#10;Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;&#10;System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.0.1&apos;, java.version: &apos;22.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [70b46e9a673ceada8b5ed8e7ddb9e33b, close {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 70b46e9a673ceada8b5ed8e7ddb9e33b" type="org.openqa.selenium.remote.UnreachableBrowserException">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.0.1', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [70b46e9a673ceada8b5ed8e7ddb9e33b, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 70b46e9a673ceada8b5ed8e7ddb9e33b
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1060)
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1570)
-</failure>
-  </testcase>
-  <testcase name="quit" classname="com.dacautomation.tests.cms.chromeBaseTest2" time="167.73">
-    <failure message="Timed out waiting for driver server to stop.&#10;Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;&#10;System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.0.1&apos;, java.version: &apos;22.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [45c34ad162ae5ccc60dd092b3d9ec616, quit {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 45c34ad162ae5ccc60dd092b3d9ec616" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.0.1', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [45c34ad162ae5ccc60dd092b3d9ec616, quit {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.92, chrome: {chromedriverVersion: 130.0.6723.91 (53ac07678369..., userDataDir: /var/folders/gv/n79tv5gs259...}, fedcm:accounts: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 45c34ad162ae5ccc60dd092b3d9ec616
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1060)
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1570)
-</failure>
-  </testcase>
+  <testcase name="baseTest" classname="com.dacautomation.tests.cms.chromeBaseTest1$BaseTest" time="272.574"/>
+  <testcase name="baseTest3" classname="com.dacautomation.tests.cms.chromeBaseTest3" time="277.671"/>
+  <testcase name="baseTest2" classname="com.dacautomation.tests.cms.chromeBaseTest2" time="323.962"/>
 </testsuite>
